@@ -19,9 +19,17 @@ class NYTimesMostPopularTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
+    func testMostPopularService() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        var client = NYTimesWebClient()
+        client.getMostPopularArticles(section: MostPopularSectionType.allSections.rawValue, noOfDays: 1) {error,articles in
+            if let error = error {
+                XCTFail("Testing Error : \(error.localizedDescription)")
+            }
+  
+        }
+
     }
 
     func testPerformanceExample() {
